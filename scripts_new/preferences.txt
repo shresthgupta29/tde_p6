@@ -1,0 +1,4 @@
+alg 		varchar2(7 char) NOT NULL := 'AES128';
+owner 		varchar2(30 char) NOT NULL := 'ADMUSER';
+source_dir	varchar2(128 char) NOT NULL := '/u01/app/WALLET';
+target_dir	varchar2(128 char) NOT NULL := '/u01/app/WALLET';
