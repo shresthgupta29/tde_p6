@@ -1,6 +1,6 @@
 import os
 cwd = os.getcwd()  #/current working directory
-java_home='/scratch/jdk1.8.0_144/'
+java_home='/scratch/jdk1.8.0_144' 
 oracle_home = '/u01/app/pgbuora/product/12.2.0/dbhome_1'
 oracle_base = '/u01/app/pgbuora' 
 wallet_location = '/u01/app/WALLET/TDE'
