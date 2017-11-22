@@ -122,9 +122,14 @@ with open('dbsetup.properties','w') as file :
 	file.write(filedata)
 print "Done replace"
 
-os.chdir(p6db)
-subprocess.call('./dbsetup.sh -readfromfile /dbsetup.properties',shell=True)
-
+try:
+	os.chdir(p6db)
+	subprocess.call('chmod 777 *',shell=True)
+	os.chdir(p6db)
+	subprocess.call('./dbsetup.sh -readfromfile /dbsetup.properties',shell=True)
+except OSError as e:
+	print("Error At line {} : {}".format(str(get_linenumber()),err))
+	exit()
 #--------------------------------------GRANTS BEFORE TDE------------------
 conn = 'sys/'+admin_pass+'@'+pgdb+' as sysdba'
 session = subprocess.Popen([oracle_home+'/bin/sqlplus', '-S', conn], stdin=PIPE, stdout=PIPE, stderr=PIPE)
